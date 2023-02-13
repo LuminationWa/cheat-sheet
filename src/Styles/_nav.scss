@@ -1,0 +1,16 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: $secondaryColor;
+    a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .navR-container {
+        display: flex;
+        gap: 1.5rem;
+    }
+}

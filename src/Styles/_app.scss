@@ -1,0 +1,16 @@
+.App {
+    display: grid;
+    position: relative;
+    grid-template-rows: 10% 90%;
+    button {
+        position: absolute;
+        height: 3vh;
+        bottom: (100vh - 3vh) / 15;
+    }
+    .add-btn {
+        right: 2vw;
+    }
+    .display-btn {
+        left: 2vw;
+    }
+}

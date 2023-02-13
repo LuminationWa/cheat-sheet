@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #a3d9ff;
+}
+nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+nav .navR-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.main-content {
+  background-color: #ffffff;
+}
+
+.App {
+  display: grid;
+  position: relative;
+  grid-template-rows: 10% 90%;
+}
+.App button {
+  position: absolute;
+  height: 3vh;
+  bottom: 6.4666666667vh;
+}
+.App .add-btn {
+  right: 2vw;
+}
+.App .display-btn {
+  left: 2vw;
+}
+
+.CS-card {
+  max-width: 15%;
+  border: 1px solid black;
+}
+.CS-card h1 {
+  font-size: 1.2rem;
+}
+.CS-card h2 {
+  font-size: 1rem;
+}
+.CS-card h3 {
+  font-size: 0.8rem;
+}
+.CS-card .tags {
+  display: flex;
+  gap: 0.2rem;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+}/*# sourceMappingURL=general.css.map */

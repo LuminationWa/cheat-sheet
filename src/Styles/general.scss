@@ -1,0 +1,19 @@
+@import "./variables";
+@import "./nav";
+@import "./csOverview";
+@import "./_app";
+@import "./csCard";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+body, html, #root, .App {
+    height: 100%;
+    margin: 0;
+}
+

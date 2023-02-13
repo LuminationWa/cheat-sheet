@@ -1,0 +1,17 @@
+.CS-card {
+    max-width: 15%;
+    border: 1px solid black;
+    h1 {
+        font-size: 1.2rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    h3 {
+        font-size: 0.8rem;
+    }
+    .tags {
+        display: flex;
+        gap: 0.2rem;
+    }
+}
