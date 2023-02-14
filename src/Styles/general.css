@@ -18,6 +18,7 @@ nav .navR-container {
 
 .main-content {
   background-color: #ffffff;
+  position: relative;
 }
 
 .App {
@@ -37,20 +38,39 @@ nav .navR-container {
   left: 2vw;
 }
 
-.CS-card {
+.CS-card-dynamic {
+  position: absolute;
   max-width: 15%;
   border: 1px solid black;
 }
-.CS-card h1 {
+.CS-card-dynamic h1 {
   font-size: 1.2rem;
 }
-.CS-card h2 {
+.CS-card-dynamic h2 {
   font-size: 1rem;
 }
-.CS-card h3 {
+.CS-card-dynamic h3 {
   font-size: 0.8rem;
 }
-.CS-card .tags {
+.CS-card-dynamic .tags {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.CS-card-static {
+  max-width: 15%;
+  border: 1px solid black;
+}
+.CS-card-static h1 {
+  font-size: 1.2rem;
+}
+.CS-card-static h2 {
+  font-size: 1rem;
+}
+.CS-card-static h3 {
+  font-size: 0.8rem;
+}
+.CS-card-static .tags {
   display: flex;
   gap: 0.2rem;
 }
