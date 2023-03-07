@@ -7,17 +7,6 @@ import LogIn from "./Components/LogIn";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    fetch("/protected", {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data.user);
-      });
-  }, []);
-
   return (
     <div className="App">
       <BrowserRouter>
