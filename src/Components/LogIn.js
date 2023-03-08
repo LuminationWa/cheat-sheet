@@ -14,6 +14,7 @@ const LogIn = () => {
       .post("/log-in", { username, password })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userInfo", JSON.stringify(response.data.payload));
         // Redirect to index page after successful login
         navigate("/");
       })
