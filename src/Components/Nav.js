@@ -7,7 +7,7 @@ const Nav = ({ setToken }) => {
   const location = useLocation(); //Set so component re-renders everytime the url changes. Logout bugs happened before this
 
   useEffect(() => {
-    //Gets tge token and user from local storage and assigns it to state
+    //Gets the token and user from local storage and assigns it to state
     const tempStoredToken = localStorage.getItem("token");
     const tempStoredUser = JSON.parse(localStorage.getItem("userInfo")); //Cause user is stored as a string in local storage
     //it needs to be converted back

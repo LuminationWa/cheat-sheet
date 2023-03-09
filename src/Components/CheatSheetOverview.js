@@ -8,12 +8,20 @@ const CheatSheetOverview = () => {
   const [CSCards, setCards] = useState([]); //Stores the cheatsheets
   const [currentlyDisplaying, setCurrentlyDisplaying] = useState("Cheatsheets"); //Stores what's being displayed
   const [currentView, setCurrentView] = useState("Static"); //Stores current view
-  const [currentUser, setCurrentUser] = useState("63ffbfe5f31f5a81324e2a0f");//Stores current user ID PLACEHOLDER ID
+  const [currentUser, setCurrentUser] = useState("");//Stores current user
   const changeView = () => {
     currentView === "Static"
       ? setCurrentView("Dynamic")
       : setCurrentView("Static");
   };
+
+  useEffect(() => {
+    //Gets current user
+    const tempStoredUser = JSON.parse(localStorage.getItem("userInfo"));
+    if (tempStoredUser) {
+      setCurrentUser(tempStoredUser);
+    }
+  },[]);
 
   useEffect(() => {
     //Remakes the cards based off currentView
@@ -46,7 +54,7 @@ const CheatSheetOverview = () => {
       >
         {currentView}
       </button>
-      <CheatsheetModal />
+      <CheatsheetModal currentUser={currentUser}/>
     </div>
   );
 };

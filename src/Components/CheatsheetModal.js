@@ -18,18 +18,22 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function BasicModal(props) {
   //Variables
   const [open, setOpen] = React.useState(false);
   const [userTags, setUserTags] = React.useState(null); //Stores current user tags
   const [tagElements, setTagElements] = React.useState([]); //Stores the tag elements
+  const [selectedTag, setSelectedTag] = React.useState(""); //Stores the selected tag (form)
+  const currentUser = props.currentUser;
 
   //Display management
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const getTags = async () => {
-    const response = await fetch("/tags", {
+    console.log("Get tags", currentUser?._id);
+    if (!currentUser) return; // Wait until currentUser is defined
+    const response = await fetch(`/tags?user=${currentUser._id}`, {
       method: "GET",
       mode: "cors",
     });
@@ -37,6 +41,7 @@ export default function BasicModal() {
   };
 
   React.useEffect(() => {
+    console.log(currentUser);
     async function fetchTags() {
       const response = await getTags();
       const tags = await response.json();
@@ -57,6 +62,16 @@ export default function BasicModal() {
     }
   }, [userTags]);
 
+  React.useEffect(() => {
+    console.log(currentUser);
+    async function fetchTags() {
+      const response = await getTags();
+      const tags = await response.json();
+      setUserTags(tags);
+    }
+    fetchTags();
+  }, [currentUser]);
+
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>
@@ -71,8 +86,10 @@ export default function BasicModal() {
             Create a new cheatsheet
           </Typography>
           <form action="cheatsheet/create" method="POST">
+            <input type="hidden" name="user" value={currentUser} />
             <TextField
               id="cheatsheet-title"
+              name="name"
               label="Title"
               type="text"
               InputLabelProps={{
@@ -82,6 +99,7 @@ export default function BasicModal() {
             />
             <TextField
               id="cheatsheet-description"
+              name="description"
               label="Description"
               type="text"
               InputLabelProps={{
@@ -90,9 +108,12 @@ export default function BasicModal() {
             />
             <TextField
               id="select-tags"
+              name="tags"
               select
               label="Select"
               defaultValue=""
+              value={selectedTag} // Set the selected tag value
+              onChange={(event) => setSelectedTag(event.target.value)} // Handle the change event
               helperText="Please select your tags"
             >
               {tagElements}
