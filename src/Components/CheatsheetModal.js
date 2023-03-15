@@ -41,10 +41,10 @@ export default function BasicModal(props) {
   };
 
   React.useEffect(() => {
-    console.log(currentUser);
     async function fetchTags() {
       const response = await getTags();
       const tags = await response.json();
+      console.log("tags", tags);
       setUserTags(tags);
     }
     fetchTags();
@@ -86,7 +86,7 @@ export default function BasicModal(props) {
             Create a new cheatsheet
           </Typography>
           <form action="cheatsheet/create" method="POST">
-            <input type="hidden" name="user" value={currentUser} />
+          <input type="hidden" name="user" value={currentUser?._id} />
             <TextField
               id="cheatsheet-title"
               name="name"
