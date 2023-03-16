@@ -31,7 +31,6 @@ export default function BasicModal(props) {
   const handleClose = () => setOpen(false);
 
   const getTags = async () => {
-    console.log("Get tags", currentUser?._id);
     if (!currentUser) return; // Wait until currentUser is defined
     const response = await fetch(`/tags?user=${currentUser._id}`, {
       method: "GET",
@@ -44,7 +43,6 @@ export default function BasicModal(props) {
     async function fetchTags() {
       const response = await getTags();
       const tags = await response.json();
-      console.log("tags", tags);
       setUserTags(tags);
     }
     fetchTags();
