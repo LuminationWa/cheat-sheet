@@ -52,7 +52,7 @@ export default function BasicModal(props) {
     //Triggered after fetch ends so array gets rendered correctly
     if (userTags) {
       const elements = userTags.map((tag) => (
-        <MenuItem key={tag.id} value={tag.id}>
+        <MenuItem key={tag._id} value={tag._id}>
           {tag.name}
         </MenuItem>
       ));
@@ -84,7 +84,7 @@ export default function BasicModal(props) {
             Create a new cheatsheet
           </Typography>
           <form action="cheatsheet/create" method="POST">
-          <input type="hidden" name="user" value={currentUser?._id} />
+            <input type="hidden" name="user" value={currentUser?._id} />
             <TextField
               id="cheatsheet-title"
               name="name"
@@ -106,7 +106,7 @@ export default function BasicModal(props) {
             />
             <TextField
               id="select-tags"
-              name="tags"
+              name="tag"
               select
               label="Select"
               defaultValue=""
