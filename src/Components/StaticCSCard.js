@@ -7,6 +7,7 @@ const StaticCSCARD = (props) => {
   const [currentTagName, setCurrentTagName] = useState(null);
 
   useEffect(() => {
+    //Fetches cheatsheet's tag
     async function fetchTagName() {
       const response = await fetch(`/tag/${info.tag}`, {
         method: "GET",
