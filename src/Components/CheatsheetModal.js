@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import TagModal from "./TagModal";
 
 const style = {
   position: "absolute",
@@ -29,6 +30,11 @@ export default function BasicModal(props) {
   //Display management
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  //Variables for tag modal
+  const [tagOpen, setTagOpen] = React.useState(false);
+  const handleTagOpen = () => setTagOpen(true);
+  const handleTagClose = () => setTagOpen(false);
 
   const getTags = async () => {
     if (!currentUser) return; // Wait until currentUser is defined
@@ -61,7 +67,6 @@ export default function BasicModal(props) {
   }, [userTags]);
 
   React.useEffect(() => {
-    console.log(currentUser);
     async function fetchTags() {
       const response = await getTags();
       const tags = await response.json();
@@ -72,6 +77,11 @@ export default function BasicModal(props) {
 
   return (
     <div>
+      <TagModal
+        open={tagOpen}
+        handleOpen={handleTagOpen}
+        handleClose={handleTagClose}
+      />
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
@@ -116,6 +126,14 @@ export default function BasicModal(props) {
             >
               {tagElements}
             </TextField>
+            <button
+              type="button"
+              onClick={() => {
+                handleTagOpen();
+              }}
+            >
+              +
+            </button>
             <Button variant="contained" type="submit">
               Submit
             </Button>
