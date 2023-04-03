@@ -4,6 +4,7 @@ import Nav from "./Components/Nav";
 import CSheetOverview from "./Components/CheatSheetOverview";
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
+import ManageOverview from "./Components/ManageOverview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Nav setToken={setToken} />
         <Routes>
           <Route path="/" element={<CSheetOverview />} />
+          <Route path="/manage" element={<ManageOverview />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn setToken={setToken} />} />
         </Routes>
