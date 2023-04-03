@@ -81,6 +81,7 @@ export default function BasicModal(props) {
         open={tagOpen}
         handleOpen={handleTagOpen}
         handleClose={handleTagClose}
+        user={currentUser?._id}
       />
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
