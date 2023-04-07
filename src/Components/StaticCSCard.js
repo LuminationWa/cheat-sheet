@@ -7,6 +7,9 @@ const StaticCSCARD = (props) => {
   const [currentTagName, setCurrentTagName] = useState(null);
   const [currentMode, setCurrentMode] = useState("display-only"); //Used to change between display only and edit mode
   const [currentCard, setCurrentCard] = useState();
+  //Form variables
+  const [name, setName] = useState(info.name);
+  const [description, setDescription] = useState(info.description);
 
   useEffect(() => {
     //Fetches cheatsheet's tag
@@ -51,10 +54,11 @@ const StaticCSCARD = (props) => {
 
   const setCardForm = () => {
     setCurrentCard(
-      <form action={`/cheatsheet/${props._id}/update`} method="POST">
-        <input type="text" name="name" value={info.name}></input>
-        <input type="text" name="description" value={info.description}></input>
-        <input type="text" name="tag" value={info.tag}></input>
+      <form action={`/cheatsheet/${info._id}/update`} method="POST">
+        <input type="text" name="name" defaultValue={name}></input>
+        <input type="text" name="description" defaultValue={description}></input>
+        <div>{currentTagName && <h3>{currentTagName}</h3>}</div>
+        <button type="submit" style={{ display: 'none' }}></button>
       </form>
     )
     ;
