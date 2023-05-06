@@ -17,6 +17,9 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1em"
 };
 
 export default function BasicModal(props) {
@@ -94,7 +97,7 @@ export default function BasicModal(props) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Create a new cheatsheet
           </Typography>
-          <form action="cheatsheet/create" method="POST">
+          <form action="cheatsheet/create" method="POST" className="cs-form">
             <input type="hidden" name="user" value={currentUser?._id} />
             <TextField
               id="cheatsheet-title"

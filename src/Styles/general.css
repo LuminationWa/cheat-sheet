@@ -75,6 +75,11 @@ nav .navR-container {
   gap: 0.2rem;
 }
 
+.cs-form {
+  display: grid;
+  gap: 1em;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -85,4 +90,6 @@ nav .navR-container {
 body, html, #root, .App {
   height: 100%;
   margin: 0;
-}/*# sourceMappingURL=general.css.map */
+}
+
+/*# sourceMappingURL=general.css.map */
